@@ -35,8 +35,8 @@ try:
             
             #print(type(registros))
             
-            javi = 1
-            javi = 2
+            
+
 except Exception as e:
     print(f'Ocurrio un error tipo: {e}')
 finally:
