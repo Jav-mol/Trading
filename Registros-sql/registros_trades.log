@@ -15,3 +15,5 @@
 05:19:26 PM: DEBUG [conexion.py:38] Se ha obtenido el cursor: <cursor object at 0x7f46a426d7b0; closed: 0>
 05:19:27 PM: DEBUG [conexion.py:41] Se ha retornado el cursor: <cursor object at 0x7f46a426d7b0; closed: -1>
 05:19:27 PM: ERROR [registros.py:83] Ocurrio un error en "Recuento de Ganancias". De tipo: cursor already closed
+05:54:18 PM: DEBUG [conexion.py:25] Se ha obtenido la conexion: <connection object at 0x7fec9c9ea340; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
+05:54:18 PM: DEBUG [conexion.py:38] Se ha obtenido el cursor: <cursor object at 0x7fec9c9c17b0; closed: 0>

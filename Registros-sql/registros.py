@@ -3,6 +3,7 @@ import psycopg2 as pg
 from logger import log
 from conexion import Conexion
 from trade import *
+
 conexion = pg.connect(
     user = 'javi',
     password = 'alumno',
@@ -28,7 +29,7 @@ class Registros:
             log.debug(f'Trade agregado: {trade} ;)')
             
         except Exception as e:
-            log.debug(f'Ocurrio un error al agregar un trade: {e}')
+            log.error(f'Ocurrio un error al agregar un trade: {e}')
             sys.exit()
     
     @classmethod
@@ -59,7 +60,7 @@ ganancia: {i[8]} ''')
                         
         except Exception as e:
             log.error(f'Ocurrio un error en "Listar Registros". De tipo: {e}')
-
+            sys.exit()
     @staticmethod
     def recuento_ganancias():
         try:
@@ -123,7 +124,9 @@ ganancia: {i[8]} ''')
                     cursor.execute(sentencia,valores)
            
         except Exception as e:
-            print(f'Ocurrio un error en "Actualizar Trade". De tipo: {e}')
+            log.error(f'Ocurrio un error en "Actualizar Trade". De tipo: {e}')
+            sys.exit()
+            
 if __name__ == '__main__':
     trade = Trade('Btc',10,'Short',3,'12-12-2023','12-12-2024',-0.1,1.2)
     Registros.listar_registro()
