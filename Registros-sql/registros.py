@@ -1,5 +1,8 @@
+import sys
 import psycopg2 as pg
-
+from logger import log
+from conexion import Conexion
+from trade import *
 conexion = pg.connect(
     user = 'javi',
     password = 'alumno',
@@ -9,38 +12,32 @@ conexion = pg.connect(
 )
 
 class Registros:
-    @classmethod
-    def agregar_trade(self,derivado, margen, trade_tipo, apalancamiento,fecha_apertura,fecha_cierre,tarifa,ganancia) -> None:
-        self.derivado = derivado
-        self.margen = float(margen)
-        self.trade_tipo = trade_tipo
-        self.apalancamiento = int(apalancamiento)
-        self.fecha_apertura = fecha_apertura
-        self.fecha_cierre = fecha_cierre
-        self.tarifa = float(tarifa)
-        self.ganancia = float(ganancia)
-        try:
-            with conexion:
-                with conexion.cursor() as cursor:
-
-                    sentencia = 'INSERT INTO trades (derivado, margen, trade_tipo, apalancamiento,fecha_apertura,fecha_cierre,tarifa,ganancia) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)'
-
-                    valores = (self.derivado),(self.margen),(self.trade_tipo),(self.apalancamiento),(self.fecha_apertura),(self.fecha_cierre),(self.tarifa),(self.ganancia)
-
-                    cursor.execute(sentencia, valores)
-                    
-            print('Trade agregado ;)')
-        except Exception as e:
-            print(f'Ocurrio un error al iniciar la clase. De tipo: {e}')
+    _INSERT = 'INSERT INTO trades (derivado, margen, trade_tipo, apalancamiento,fecha_apertura,fecha_cierre,tarifa,ganancia) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)'
+    _SELECT = 'SELECT * FROM  trades ORDER BY id_trade'
     
-    @staticmethod
-    def listar_registro():
+    @classmethod
+    def agregar_trade(cls,trade) -> None:
         try:
-            with conexion:
-                with conexion.cursor() as cursor:
-                    sentencia = 'SELECT * FROM  trades ORDER BY id_trade'
+            with Conexion.obtener_conexion():
+                with Conexion.obtener_cursor() as cursor:
 
-                    cursor.execute(sentencia)
+                    valores = (trade.derivado),(trade.margen),(trade.trade_tipo),(trade.apalancamiento),(trade.fecha_apertura),(trade.fecha_cierre),(trade.tarifa),(trade.ganancia)
+
+                    cursor.execute(cls._INSERT, valores)
+                    
+            log.debug(f'Trade agregado: {trade} ;)')
+            
+        except Exception as e:
+            log.debug(f'Ocurrio un error al agregar un trade: {e}')
+            sys.exit()
+    
+    @classmethod
+    def listar_registro(cls):
+        try:
+            #with Conexion.obtener_conexion():
+                with Conexion.obtener_cursor() as cursor:
+                    
+                    cursor.execute(cls._SELECT)
 
                     registros = cursor.fetchall()
 
@@ -61,13 +58,13 @@ tarifa: {i[7]}
 ganancia: {i[8]} ''')
                         
         except Exception as e:
-            print(f'Ocurrio un error en "Listar Registros". De tipo: {e}')
+            log.error(f'Ocurrio un error en "Listar Registros". De tipo: {e}')
 
     @staticmethod
     def recuento_ganancias():
         try:
-            with conexion:
-                with conexion.cursor() as cursor:
+            #with conexion:
+                with Conexion.obtener_cursor() as cursor:
                     suma = 0
                     tarifa = 0
                     sentencia = 'SELECT * FROM trades'
@@ -83,13 +80,14 @@ ganancia: {i[8]} ''')
                     print(f'La Ganancia total acumulada es de \n=>${suma:.2f}')
                     
         except Exception as e:
-            print(f'Ocurrio un error en "Recuento de Ganancias". De tipo: {e}')
-    
+            log.error(f'Ocurrio un error en "Recuento de Ganancias". De tipo: {e}')
+            sys.exit()
+            
     @staticmethod
     def recuento_tarifas():
         try:
-            with conexion:
-                with conexion.cursor() as cursor:
+            #with conexion:
+                with Conexion.obtener_cursor() as cursor:
                     suma = 0
                     sentencia = 'SELECT * FROM trades'
                     
@@ -101,8 +99,9 @@ ganancia: {i[8]} ''')
                         suma += i[7]
                     print(f'El gasto en tarifas acumulado es de \n=>${suma:.2f}')
         except Exception as e:
-            print(f'Ocurrio un error en "Recuento de Tarifas". De tipo: {e}')
-
+            log.error(f'Ocurrio un error en "Recuento de Tarifas". De tipo: {e}')
+            sys.exit()
+            
     @staticmethod
     def actualizar_trade():
         try:
@@ -125,3 +124,7 @@ ganancia: {i[8]} ''')
            
         except Exception as e:
             print(f'Ocurrio un error en "Actualizar Trade". De tipo: {e}')
+if __name__ == '__main__':
+    trade = Trade('Btc',10,'Short',3,'12-12-2023','12-12-2024',-0.1,1.2)
+    Registros.listar_registro()
+    

@@ -1,5 +1,6 @@
 from registros import Registros as trading
 from registros import conexion
+from trade import Trade
 
 menu = '''1-Agregar un Trade
 2-Listar Registros
@@ -26,7 +27,8 @@ try:
                 fec_c = input('Fecha Cierre: ')            
                 tarifa = input('Tarifa: $')
                 ganancia = float(input('Ganancia: $'))
-                trading.agregar_trade(derivado,margen,tipo,apalancamiento,fec_a,fec_c,tarifa,ganancia)
+                trade = Trade(derivado,margen,tipo,apalancamiento,fec_a,fec_c,tarifa,ganancia)
+                trading.agregar_trade(trade)
                 print('~'*35)
                 print('='*35,'\n')
             except Exception as e:
