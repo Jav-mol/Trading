@@ -6,7 +6,7 @@ log.basicConfig(level=log.DEBUG,
                 datefmt='%I:%M:%S %p',
                 handlers=[
                     log.FileHandler('registros_trades.log'),
-                    log.StreamHandler()
+#                    log.StreamHandler()
                 ])
 
 if __name__ == '__main__':

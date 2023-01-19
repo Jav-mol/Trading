@@ -1,19 +1,29 @@
-04:51:32 PM: DEBUG [conexion.py:25] Se ha obtenido la conexion: <connection object at 0x7fdd958460c0; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
-04:51:32 PM: DEBUG [conexion.py:37] Se ha obtenido el cursor: <cursor object at 0x7fdd9581d990; closed: 0>
-05:07:53 PM: DEBUG [conexion.py:25] Se ha obtenido la conexion: <connection object at 0x7f9962b0e200; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
-05:07:53 PM: DEBUG [conexion.py:28] Se ha retornado la conexion: <connection object at 0x7f9962b0e200; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
-05:07:53 PM: DEBUG [conexion.py:38] Se ha obtenido el cursor: <cursor object at 0x7f9962ae57b0; closed: 0>
-05:07:54 PM: DEBUG [registros.py:28] Trade agregado: <trade.Trade object at 0x7f9961504820> ;)
-05:12:11 PM: DEBUG [conexion.py:25] Se ha obtenido la conexion: <connection object at 0x7f7f8f94e200; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
-05:12:11 PM: DEBUG [conexion.py:28] Se ha retornado la conexion: <connection object at 0x7f7f8f94e200; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
-05:12:11 PM: DEBUG [conexion.py:38] Se ha obtenido el cursor: <cursor object at 0x7f7f8f9257b0; closed: 0>
-05:13:07 PM: DEBUG [conexion.py:25] Se ha obtenido la conexion: <connection object at 0x7f85aa48a200; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
-05:13:07 PM: DEBUG [conexion.py:38] Se ha obtenido el cursor: <cursor object at 0x7f85aa4617b0; closed: 0>
-05:17:04 PM: DEBUG [conexion.py:25] Se ha obtenido la conexion: <connection object at 0x7f6147f3a200; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
-05:17:04 PM: DEBUG [conexion.py:38] Se ha obtenido el cursor: <cursor object at 0x7f6147f117b0; closed: 0>
-05:19:26 PM: DEBUG [conexion.py:25] Se ha obtenido la conexion: <connection object at 0x7f46a4296200; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
-05:19:26 PM: DEBUG [conexion.py:38] Se ha obtenido el cursor: <cursor object at 0x7f46a426d7b0; closed: 0>
-05:19:27 PM: DEBUG [conexion.py:41] Se ha retornado el cursor: <cursor object at 0x7f46a426d7b0; closed: -1>
-05:19:27 PM: ERROR [registros.py:83] Ocurrio un error en "Recuento de Ganancias". De tipo: cursor already closed
-05:54:18 PM: DEBUG [conexion.py:25] Se ha obtenido la conexion: <connection object at 0x7fec9c9ea340; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
-05:54:18 PM: DEBUG [conexion.py:38] Se ha obtenido el cursor: <cursor object at 0x7fec9c9c17b0; closed: 0>
+12:37:41 PM: DEBUG [cursor_pool.py:12] Iniciando el metodo: "__enter__"
+12:37:41 PM: DEBUG [conexion.py:29] Se ha obtenido la conexion: <psycopg2.pool.SimpleConnectionPool object at 0x7fc647ebff70>
+12:37:41 PM: DEBUG [conexion.py:41] Conexion obtenida correctamente: <connection object at 0x7fc64803a0c0; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
+12:37:41 PM: DEBUG [cursor_pool.py:22] Ejecutando el metodo: "__exit__"
+12:37:41 PM: DEBUG [cursor_pool.py:29] Commit de la transaccion
+12:37:41 PM: DEBUG [conexion.py:32] Se ha retornado la conexion: <psycopg2.pool.SimpleConnectionPool object at 0x7fc647ebff70>
+12:37:41 PM: DEBUG [conexion.py:51] Conexion liberada correctamente: <connection object at 0x7fc64803a0c0; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
+12:37:46 PM: DEBUG [cursor_pool.py:12] Iniciando el metodo: "__enter__"
+12:37:46 PM: DEBUG [conexion.py:32] Se ha retornado la conexion: <psycopg2.pool.SimpleConnectionPool object at 0x7fc647ebff70>
+12:37:46 PM: DEBUG [conexion.py:41] Conexion obtenida correctamente: <connection object at 0x7fc64803a0c0; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
+12:37:46 PM: DEBUG [cursor_pool.py:22] Ejecutando el metodo: "__exit__"
+12:37:46 PM: DEBUG [cursor_pool.py:29] Commit de la transaccion
+12:37:46 PM: DEBUG [conexion.py:32] Se ha retornado la conexion: <psycopg2.pool.SimpleConnectionPool object at 0x7fc647ebff70>
+12:37:46 PM: DEBUG [conexion.py:51] Conexion liberada correctamente: <connection object at 0x7fc64803a0c0; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
+12:37:47 PM: DEBUG [cursor_pool.py:12] Iniciando el metodo: "__enter__"
+12:37:47 PM: DEBUG [conexion.py:32] Se ha retornado la conexion: <psycopg2.pool.SimpleConnectionPool object at 0x7fc647ebff70>
+12:37:47 PM: DEBUG [conexion.py:41] Conexion obtenida correctamente: <connection object at 0x7fc64803a0c0; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
+12:37:47 PM: DEBUG [cursor_pool.py:22] Ejecutando el metodo: "__exit__"
+12:37:47 PM: DEBUG [cursor_pool.py:29] Commit de la transaccion
+12:37:47 PM: DEBUG [conexion.py:32] Se ha retornado la conexion: <psycopg2.pool.SimpleConnectionPool object at 0x7fc647ebff70>
+12:37:47 PM: DEBUG [conexion.py:51] Conexion liberada correctamente: <connection object at 0x7fc64803a0c0; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
+12:39:41 PM: DEBUG [cursor_pool.py:12] Iniciando el metodo: "__enter__"
+12:39:41 PM: DEBUG [conexion.py:29] Se ha obtenido la conexion: <psycopg2.pool.SimpleConnectionPool object at 0x7fd7c842ff70>
+12:39:41 PM: DEBUG [conexion.py:41] Conexion obtenida correctamente: <connection object at 0x7fd7c85a6200; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>
+12:39:41 PM: DEBUG [cursor_pool.py:22] Ejecutando el metodo: "__exit__"
+12:39:41 PM: DEBUG [cursor_pool.py:29] Commit de la transaccion
+12:39:41 PM: DEBUG [cursor_pool.py:31] Cursor cerrado correctamente: <cursor object at 0x7fd7c857fb50; closed: -1>
+12:39:41 PM: DEBUG [conexion.py:32] Se ha retornado la conexion: <psycopg2.pool.SimpleConnectionPool object at 0x7fd7c842ff70>
+12:39:41 PM: DEBUG [conexion.py:51] Conexion liberada correctamente: <connection object at 0x7fd7c85a6200; dsn: 'user=javi password=xxx dbname=trading host=localhost port=5432', closed: 0>

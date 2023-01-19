@@ -1,5 +1,4 @@
-from registros import Registros as trading
-from registros import conexion
+from registrosDAO import RegistrosDAO as trading
 from trade import Trade
 
 menu = '''1-Agregar un Trade
@@ -72,7 +71,6 @@ try:
                 print('~'*35)
                 print('='*35,'\n')
         else:
-            conexion.close()        
             print('='*35)    
             break
 except Exception as e:
